@@ -12,9 +12,9 @@ This is a MERN (MongoDB, Express.js, React.js, Node.js) project, which consists 
 
 Navigate to the `backend` directory:
 
-cd backend
-npm i
-npm run dev
+1- cd backend
+2- npm i
+3- npm run dev
 
 The backend server will run on port 3000 by default.
 
@@ -22,9 +22,9 @@ The backend server will run on port 3000 by default.
 
 Navigate to the `frontend` directory:
 
-cd frontend
-npm i
-npm run dev
+1- cd frontend
+2- npm i
+3- npm run dev
 
 The frontend server will run on port 5173 by default.
 
