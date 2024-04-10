@@ -11,7 +11,8 @@ const Home = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [loading, setloading] = useState(true);
 
-  useEffect(() => {
+  useEffect(() => { 
+    let ignore = false
     const fetchThreads = async () => {
       try {
         const res = await fetch(
@@ -21,7 +22,8 @@ const Home = () => {
           }
         );
         const data = await res.json();
-        if (!data.error) {
+        if (!data.error && !ignore) {
+          setloading(false)
           setThreads(data.threads);
           setTotalPages(data.totalPages);
         }
@@ -36,6 +38,7 @@ const Home = () => {
     } else {
       fetchThreads();
     }
+    return () => {ignore = true}
   }, [navigate, currentUser, currentPage]);
   
 
