@@ -5,7 +5,7 @@ const languages = ["English", "French", "Arabic", "Spanish"];
 
 function getRandomLanguage() {
     return languages[Math.floor(Math.random() * languages.length)];
-}
+} 
 
 function getRandomCity() {
     return cities[Math.floor(Math.random() * cities.length)];

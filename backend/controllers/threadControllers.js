@@ -17,7 +17,7 @@ const fetchThreads = async (req, res) => {
   const skip = (page - 1) * limit;
 
   const threads = await Thread.find()
-    .populate("profile_id", "followers_count language city age -_id")
+    .populate("profile_id", "followers_count language city age -_id").populate("user_id", "name -_id")
     .skip(skip)
     .limit(limit);
 
@@ -53,7 +53,10 @@ const fetchThreads = async (req, res) => {
     return 0;
   });
 
-  res.json(threads);
+  const totalThreadsCount = await Thread.countDocuments();
+    const totalPages = Math.ceil(totalThreadsCount / limit);
+
+    res.json({ threads, totalPages });
 };
 
 module.exports = {
