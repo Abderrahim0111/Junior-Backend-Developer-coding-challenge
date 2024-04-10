@@ -7,11 +7,11 @@ const Thread = require("../models/threadSchema");
 
 
 async function createThreadsForUser(user, profileId) {
-  const numThreads = 1;
+  const numThreads = 3;
   const threads = [];
 
   for (let i = 0; i < numThreads; i++) {
-      const title = faker.lorem.words();
+      const title = faker.lorem.words(); 
       const content = faker.lorem.paragraphs();
       const thread = await Thread.create({
           user_id: user._id,
