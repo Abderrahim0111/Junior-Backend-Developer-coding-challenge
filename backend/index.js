@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const cookieParser = require('cookie-parser')
+const authRouter = require("./routes/authRoutes");
+const threadRouter = require("./routes/threadRoutes");
 
 const app = express();
 const port = 3000;
@@ -15,6 +17,8 @@ app.use(
     credentials: true,
   })
 );
+app.use(authRouter);
+app.use(threadRouter);
 
 
 mongoose
